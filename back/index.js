@@ -6,7 +6,7 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 
 const uri = process.env.MONGODB_URI;
-if (!uri) throw new Error('Defina MONGODB_URI em server/.env');
+if (!uri) throw new Error('Defina MONGODB_URI em back/.env');
 await mongoose.connect(uri);
 const Room = mongoose.model('Room', new mongoose.Schema({ name: {type:String, required:true, maxlength:60}, topic: {type:String, maxlength:120, default:''} }, {timestamps:true}));
 const Message = mongoose.model('Message', new mongoose.Schema({ room: {type:mongoose.Schema.Types.ObjectId, ref:'Room', required:true, index:true}, author: {type:String, required:true, maxlength:32}, text: {type:String, required:true, maxlength:1000} }, {timestamps:true}));
@@ -26,3 +26,4 @@ io.on('connection', socket => {
  socket.on('message:send', async (payload, ack=()=>{}) => { try { const author=clean(payload?.author,32), text=clean(payload?.text,1000), room=socket.data.room; if (!room || !author || !text) return ack({error:'Informe seu nome e uma mensagem.'}); const message=await Message.create({room,author,text}); io.to(room).emit('message:new',message); ack({ok:true}); } catch { ack({error:'Não foi possível enviar a mensagem.'}); } });
 });
 server.listen(Number(process.env.PORT)||3001,'0.0.0.0',()=>console.log('Studyverse API pronta'));
+
