@@ -1,35 +1,33 @@
 # Studyverse
 
-Plataforma de salas de estudo com uma interface imersiva, desenvolvida como proposta para a avaliação A3 de Computação Gráfica e Realidade Virtual.
+Aplicação de salas de estudo com chat em tempo real, proposta para a A3 de Computação Gráfica e Realidade Virtual. A interface usa React, Bootstrap e CSS com vidro translúcido, gradientes e iluminação; o servidor usa Node.js, Socket.IO e MongoDB.
 
-## Proposta
+## Primeira versão
 
-O Studyverse pretende conectar estudantes em salas temáticas, com conversas compartilhadas em tempo real e uma experiência responsiva para celulares e computadores. O projeto está em fase de planejamento; as funcionalidades abaixo ainda serão implementadas.
+Crie uma sala, informe um nome e converse com outras pessoas na mesma sala. O servidor salva as mensagens no MongoDB e entrega mensagens novas em tempo real. As últimas 100 mensagens são carregadas ao entrar. O nome é livre: esta versão **não possui autenticação**, perfis ou moderação e não deve ser usada para informações sensíveis.
 
-## Funcionalidades planejadas
+## Executar no computador
 
-- Cadastro e acesso de usuários.
-- Criação e descoberta de salas de estudo.
-- Chat em tempo real por sala, acessível a usuários em diferentes dispositivos.
-- Histórico de mensagens compartilhado.
-- Temporizador de foco, sujeito à definição do escopo.
+Requisitos: Node.js, npm e um MongoDB em execução, local ou remoto.
 
-## Tecnologias previstas
+1. Execute `npm install` na pasta principal.
+2. Copie `server/.env.example` para `server/.env` e defina `MONGODB_URI` com a conexão do banco.
+3. Copie `client/.env.example` para `client/.env` e ajuste `VITE_API_URL` se necessário.
+4. Execute `npm run dev`. Acesse o endereço exibido pelo Vite, normalmente `http://localhost:5173`.
 
-- React e Bootstrap para a interface.
-- Node.js para o servidor.
-- MongoDB para armazenamento compartilhado.
-- Socket.IO como opção para comunicação em tempo real.
+## Acesso entre máquinas
 
-A escolha final dos serviços de hospedagem e demais ferramentas será definida durante o desenvolvimento. O repositório no GitHub armazenará o código; a aplicação, o servidor e o banco precisarão de serviços acessíveis pela internet para funcionar entre máquinas.
+Para acesso pela internet, hospede o frontend e o servidor Node.js (com suporte a conexões Socket.IO) e use um MongoDB acessível pelo servidor. Configure `MONGODB_URI` e `CLIENT_ORIGIN` no servidor; este último deve conter a origem HTTPS exata do frontend, sem barra final. Configure `VITE_API_URL` com a URL HTTPS pública do servidor **antes de gerar o frontend** com `npm run build`. O frontend é gerado em `client/dist`; inicie o servidor com `npm start` na raiz. Jamais coloque credenciais do banco no frontend ou no GitHub. GitHub armazena o código, mas não executa por si só o servidor e o banco.
 
-## Direção visual
-
-O projeto buscará uma experiência mobile-first com painéis translúcidos (glassmorphism), iluminação e gradientes, animações fluidas e microinterações, mantendo contraste e legibilidade. GIFs ou vídeos demonstrando os efeitos e uma explicação técnica serão adicionados quando a interface estiver pronta.
+Para testes na mesma rede, use o endereço IP da máquina servidora no `VITE_API_URL` e ajuste `CLIENT_ORIGIN` para a origem usada pelo navegador. Os dispositivos precisam conseguir acessar as portas dos serviços.
 
 ## Próximos passos
 
-1. Pesquisar vagas de front-end relacionadas a interfaces ricas e registrar os requisitos relevantes.
-2. Definir público, fluxos, telas e identidade visual.
-3. Implementar e testar uma primeira versão das salas e do chat compartilhado.
-4. Publicar a aplicação e documentar os efeitos visuais neste README.
+- Adicionar autenticação, proteção contra abuso e moderação antes de disponibilizar a aplicação ao público.
+- Pesquisar vagas reais e documentar as competências escolhidas.
+- Acrescentar GIFs ou vídeos demonstrando o vidro, as animações e a iluminação, conforme o enunciado da A3.
+- Evoluir acessibilidade, testes e recursos de foco.
+
+## Testes
+
+Execute `npm test` para verificar salas, entrega em tempo real entre clientes, isolamento, histórico e uso da interface em tamanhos de celular e computador. O teste cria um MongoDB temporário e requer Google Chrome instalado; na primeira execução, pode baixar o executável do MongoDB. Execute também `npm run build` para verificar a compilação de produção.
