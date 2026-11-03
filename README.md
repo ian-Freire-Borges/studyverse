@@ -15,12 +15,6 @@ Requisitos: Node.js, npm e um MongoDB em execução, local ou remoto.
 3. Copie `front/.env.example` para `front/.env` e ajuste `VITE_API_URL` se necessário.
 4. Execute `npm run dev`. Acesse o endereço exibido pelo Vite, normalmente `http://localhost:5173`.
 
-## Acesso entre máquinas
-
-Para acesso pela internet, hospede o frontend e o servidor Node.js (com suporte a conexões Socket.IO) e use um MongoDB acessível pelo servidor. Configure `MONGODB_URI` e `CLIENT_ORIGIN` no servidor; este último deve conter a origem HTTPS exata do frontend, sem barra final. Configure `VITE_API_URL` com a URL HTTPS pública do servidor **antes de gerar o frontend** com `npm run build`. O frontend é gerado em `front/dist`; inicie o servidor com `npm start` na raiz. Jamais coloque credenciais do banco no frontend ou no GitHub. GitHub armazena o código, mas não executa por si só o servidor e o banco.
-
-Para testes na mesma rede, use o endereço IP da máquina servidora no `VITE_API_URL` e ajuste `CLIENT_ORIGIN` para a origem usada pelo navegador. Os dispositivos precisam conseguir acessar as portas dos serviços.
-
 ## Próximos passos
 
 - Adicionar autenticação, proteção contra abuso e moderação antes de disponibilizar a aplicação ao público.
