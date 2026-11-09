@@ -10,7 +10,7 @@ Cada conta tem um código único de oito dígitos, gerado automaticamente. Na ab
 
 Salas podem ser criadas com ou sem senha e com um dos quatro temas visuais: Cosmos, Aurora, Solar e Oceano. O criador pode excluir sua sala; cada pessoa pode editar ou apagar as próprias mensagens. Salas antigas não registraram criador e, portanto, não podem ser excluídas pelo aplicativo até que a propriedade seja definida com segurança.
 
-Salas de quiz permitem duelos de dois jogadores, com dez perguntas por partida, turnos alternados, 20 segundos por resposta e possibilidade de revanche. É possível escolher a categoria e compartilhar um convite. O servidor controla as respostas e a pontuação; uma desconexão temporária pausa a partida para reconexão. As partidas em andamento ficam na memória do servidor e são reiniciadas se ele for reiniciado.
+Salas de quiz permitem duelos de dois jogadores, com dez perguntas por partida, turnos alternados, 20 segundos por resposta e retorno à sala ao final. É possível escolher a categoria e compartilhar um convite. O servidor controla as respostas e a pontuação; uma desconexão temporária pausa a partida para reconexão. As partidas em andamento ficam na memória do servidor e são reiniciadas se ele for reiniciado.
 
 ## Executar no computador
 
