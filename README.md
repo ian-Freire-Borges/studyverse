@@ -1,6 +1,6 @@
 # Studyverse
 
-Aplicação de salas de estudo com chat em tempo real, proposta para a A3 de Computação Gráfica e Realidade Virtual. A interface usa React, Bootstrap e CSS com vidro translúcido, gradientes e iluminação; o servidor usa Node.js, Socket.IO e MongoDB.
+Aplicação de salas para conversar e jogar em tempo real, proposta para a A3 de Computação Gráfica e Realidade Virtual. A interface usa React, Bootstrap e CSS com vidro translúcido, gradientes e iluminação; o servidor usa Node.js, Socket.IO e MongoDB.
 
 ## Primeira versão
 
