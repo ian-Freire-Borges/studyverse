@@ -1,0 +1,9 @@
+{
+  "mutate": ["back/bomb/core.js:20-20", "back/bomb/core.js:28-28"],
+  "testRunner": "vitest",
+  "coverageAnalysis": "off",
+  "concurrency": 2,
+  "reporters": ["clear-text", "progress", "json"],
+  "jsonReporter": {"fileName": "reports/bomb-mutation.json"},
+  "ignorePatterns": ["outputs/**", "front/dist/**", "front/public/**"]
+}

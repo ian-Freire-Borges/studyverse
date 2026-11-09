@@ -18,6 +18,8 @@ O modo Estilingue 1v1 tem arenas escolhidas na criação da sala, 12 lançamento
 
 A simulação usa Matter.js no servidor, com passos fixos, repouso dos blocos e um limite de estabilização. O cliente usa quadros recebidos pela conexão para interpolar a arena, e a seção “Diagnóstico de conexão” mostra FPS aproximado, latência e tempo médio de simulação. As imagens de materiais e cenário são de Kenney, sob CC0; veja `front/public/assets/kenney/ATTRIBUTION.md`.
 
+O Bomb Arena é um modo experimental de 2 a 4 jogadores com bombas, explosões em cruz, três vidas e power-ups. A simulação usa grade e estado autoritativo no servidor; se um jogador vivo se desconectar, a partida pausa por até 15 segundos. As partidas ficam em memória e se perdem se o processo reiniciar. Detalhes, limites e testes executados estão em `docs/`.
+
 ## Executar no computador
 
 Requisitos: Node.js, npm e um MongoDB em execução, local ou remoto.

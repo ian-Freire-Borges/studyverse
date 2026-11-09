@@ -1,1 +1,34 @@
-{"name":"studyverse","private":true,"version":"0.1.0","workspaces":["front","back"],"scripts":{"dev":"concurrently -k \"npm run dev -w back\" \"npm run dev -w front\"","build":"npm run build -w front","start":"npm run start -w back"},"devDependencies":{"concurrently":"^9.1.2"}}
+{
+  "name": "studyverse",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "front",
+    "back"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev -w back\" \"npm run dev -w front\"",
+    "build": "npm run build -w front",
+    "start": "npm run start -w back",
+    "test:bomb": "vitest run tests/bomb-core.test.js",
+    "test:bomb:e2e": "node tests/bomb-e2e.mjs",
+    "test:bomb:load": "node tests/bomb-load.mjs",
+    "lint:bomb": "eslint back/bomb front/src/BombArena.jsx tests/bomb-core.test.js tests/bomb-e2e.mjs tests/bomb-load.mjs tests/bomb-network.mjs",
+    "typecheck:bomb": "tsc --allowJs --checkJs --noEmit --strict --target es2022 --module nodenext --moduleResolution nodenext --skipLibCheck back/bomb/core.js",
+    "test:bomb:network": "node tests/bomb-network.mjs",
+    "test:bomb:mutation": "stryker run"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@stryker-mutator/core": "^10.1.1",
+    "@stryker-mutator/vitest-runner": "^10.1.1",
+    "@types/node": "^26.6.6",
+    "concurrently": "^9.1.2",
+    "eslint": "^10.14.0",
+    "fast-check": "^4.10.2",
+    "globals": "^17.14.0",
+    "mongodb-memory-server-core": "^11.3.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
