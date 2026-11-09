@@ -14,6 +14,10 @@ Salas de quiz permitem duelos de dois jogadores, com dez perguntas por partida, 
 
 O modo Estilingue 1v1 tem arenas escolhidas na criação da sala, 12 lançamentos alternados e 20 segundos por turno. Arraste para trás ou use os controles de ângulo e força. A física e o dano são calculados no servidor; uma queda de conexão pausa o jogo por até 90 segundos. Assim como no quiz, partidas em andamento ficam na memória e são perdidas se o servidor reiniciar.
 
+## Física e diagnóstico do Estilingue
+
+A simulação usa Matter.js no servidor, com passos fixos, repouso dos blocos e um limite de estabilização. O cliente usa quadros recebidos pela conexão para interpolar a arena, e a seção “Diagnóstico de conexão” mostra FPS aproximado, latência e tempo médio de simulação. As imagens de materiais e cenário são de Kenney, sob CC0; veja `front/public/assets/kenney/ATTRIBUTION.md`.
+
 ## Executar no computador
 
 Requisitos: Node.js, npm e um MongoDB em execução, local ou remoto.
