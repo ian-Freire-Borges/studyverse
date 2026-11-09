@@ -12,7 +12,7 @@ Salas podem ser criadas com ou sem senha e com um dos quatro temas visuais: Cosm
 
 Salas de quiz permitem duelos de dois jogadores, com dez perguntas por partida, turnos alternados, 20 segundos por resposta e retorno à sala ao final. É possível escolher a categoria e compartilhar um convite. O servidor controla as respostas e a pontuação; uma desconexão temporária pausa a partida para reconexão. As partidas em andamento ficam na memória do servidor e são reiniciadas se ele for reiniciado.
 
-O modo Estilingue 1v1 tem arenas escolhidas na criação da sala, 12 lançamentos alternados e 20 segundos por turno. Arraste para trás ou use os controles de ângulo e força. A física e o dano são calculados no servidor; uma queda de conexão pausa o jogo por até 90 segundos. Assim como no quiz, partidas em andamento ficam na memória e são perdidas se o servidor reiniciar.
+O modo Estilingue 1v1 tem arenas escolhidas na criação da sala, 12 lançamentos alternados e 20 segundos por turno. Arraste para trás ou use os controles de ângulo e força. O vento muda a cada turno, influencia o projétil e aparece no indicador e na previsão de mira. A física e o dano são calculados no servidor; uma queda de conexão pausa o jogo por até 90 segundos. Assim como no quiz, partidas em andamento ficam na memória e são perdidas se o servidor reiniciar.
 
 ## Física e diagnóstico do Estilingue
 
