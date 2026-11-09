@@ -12,7 +12,7 @@
     "start": "npm run start -w back",
     "test:sling": "vitest run tests/sling-physics.test.js",
     "test:sling:e2e": "node tests/sling-e2e.mjs",
-    "test:bomb": "vitest run tests/bomb-core.test.js",
+    "test:bomb": "vitest run tests/bomb-core.test.js tests/bomb-visual.test.js",
     "test:bomb:e2e": "node tests/bomb-e2e.mjs",
     "test:bomb:load": "node tests/bomb-load.mjs",
     "lint:bomb": "eslint back/bomb front/src/BombArena.jsx tests/bomb-core.test.js tests/bomb-e2e.mjs tests/bomb-load.mjs tests/bomb-network.mjs",
