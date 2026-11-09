@@ -6,6 +6,10 @@ Aplicação de salas de estudo com chat em tempo real, proposta para a A3 de Com
 
 Cadastre-se com nome, e-mail e senha e escolha um avatar ilustrado. Depois entre em uma sala para conversar em tempo real. O servidor salva as últimas mensagens no MongoDB. As senhas são armazenadas como hashes; a versão inicial ainda não possui recuperação de senha, verificação de e-mail ou moderação.
 
+Cada conta tem um código único de oito dígitos, gerado automaticamente. Na aba Amigos e pessoas é possível buscar por nome, adicionar pelo código e remover amigos. Adicionar alguém inclui as duas contas nas listas, sem solicitação de aceite nesta versão.
+
+Salas podem ser criadas com ou sem senha e com um dos quatro temas visuais: Cosmos, Aurora, Solar e Oceano. O criador pode excluir sua sala; cada pessoa pode editar ou apagar as próprias mensagens. Salas antigas não registraram criador e, portanto, não podem ser excluídas pelo aplicativo até que a propriedade seja definida com segurança.
+
 ## Executar no computador
 
 Requisitos: Node.js, npm e um MongoDB em execução, local ou remoto.
