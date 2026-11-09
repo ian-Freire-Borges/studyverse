@@ -44,3 +44,5 @@ body::after{opacity:.65;background:radial-gradient(ellipse at 22% 25%,#7750be33,
 @keyframes quiz-celebrate{0%{translate:0 24px;opacity:0}35%{opacity:.9}100%{translate:14px -60px;opacity:0}}
 @keyframes quiz-trophy{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
 @media(prefers-reduced-motion:reduce){.quiz-ambient i,.quiz-phase-playing .quiz-player.current,.quiz-result .result-icon,.quiz-answers button.correct{animation:none!important}.quiz-ambient i{opacity:.4}}
+
+.room-filters{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:14px 0 10px}.room-filters button{min-width:0;border:1px solid #ffffff20;border-radius:10px;background:#0e152b88;color:#c5c7df;font-size:.8rem;font-weight:600;padding:9px 5px}.room-filters button.active{color:#f5efff;background:#a991ff29;border-color:#bea8ff88}.room-filters button:focus-visible{outline:3px solid #d8c7ff;outline-offset:2px}
