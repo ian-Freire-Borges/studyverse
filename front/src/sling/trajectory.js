@@ -1,0 +1,2 @@
+// Mirrors the server's 120 Hz Matter.js integration for a collision-free preview.
+export function predictTrajectory(origin,drag,speed=1,wind=0,windFactor=1){let x=origin.x,y=origin.y,vx=-drag.dx*18*speed*.5,vy=-drag.dy*18*speed*.5;const points=[];for(let i=0;i<100;i++){vx=vx*.9995+wind*windFactor*.00012*(1000/120)**2;vy=vy*.9995+1.5*.001*(1000/120)**2;x+=vx;y+=vy;if(i%5===4)points.push({x,y});if(y>455||x<0||x>1000)break}return points}
