@@ -19,7 +19,7 @@
 
 - Em cada ataque normal, contra-ataque ou pedra do Golem, atacante e alvo lançam 1d6. O dano só acontece se o dado do atacante for maior; empate e defesa maior bloqueiam o golpe. A magia Golpe Devastador conserva seu efeito direto.
 
-- Forja: terreno de 3 HP que custa 2 gemas e cria aleatoriamente uma carta de Espada ou Escudo a cada turno do dono. Se a mão estiver cheia, as cartas aguardam espaço. Espada aumenta o dano de um monstro aliado em 2; Escudo absorve até 2 pontos de dano, inclusive corpo a corpo e magias. Equipamentos não custam recursos ao serem usados.
+- Forja: terreno de 3 HP que custa 2 gemas e cria aleatoriamente uma carta de Espada ou Escudo a cada turno do dono. Se a mão estiver cheia, as cartas aguardam espaço. Espada aumenta o dano de um monstro aliado em 2; Escudo absorve até 2 pontos de dano, inclusive corpo a corpo e magias. Equipamentos não custam recursos ao serem usados. Espadas e escudos acumulam no mesmo monstro: cada espada adiciona 2 de dano e cada escudo adiciona 2 de proteção.
 
 - Conversão custa 3 manas e transforma um monstro inimigo vivo em aliado, preservando sua vida e habilidades. Não afeta torres nem estruturas e respeita o limite de unidades.
 - Vulcão custa 4 gemas e possui 5 HP; a cada 3 turnos do dono tenta gerar um demônio de fogo por 3 carnes. O demônio tem 5 HP, 5 de dano e movimenta até 5 hexágonos por turno; se errar o primeiro ataque, tenta uma segunda vez.
