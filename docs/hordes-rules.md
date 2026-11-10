@@ -16,3 +16,5 @@
 - Selecione um monstro para ver sua rota e escolher sua torre. Terrenos produtores transmitem a torre escolhida aos monstros produzidos. Cada alvo pode ser alterado a qualquer momento. Zumbis perseguem criaturas inimigas a até 3 casas, arqueiros até 5 e golens até 6.
 
 - A ordem de turnos é sorteada uma única vez no início da partida e permanece igual nas rodadas seguintes. Jogadores eliminados são retirados da ordem.
+
+- Em cada ataque normal, contra-ataque ou pedra do Golem, atacante e alvo lançam 1d6. O dano só acontece se o dado do atacante for maior; empate e defesa maior bloqueiam o golpe. A magia Golpe Devastador conserva seu efeito direto.
