@@ -47,3 +47,6 @@
 
 .hordes-card-art.art-golem{background:radial-gradient(circle at 50% 60%,#b7a38288,#28332f 74%)}
 .hordes-unit.kind-golem img{width:80%;height:80%;filter:drop-shadow(0 3px 3px #17160e)}
+
+.hordes-card-cost{margin-top:auto;align-self:flex-start;padding:3px 8px;border:1px solid #b8b18d66;border-radius:6px;background:#101a1bcc;color:#fff;font-size:.78rem!important;font-weight:800;line-height:1.2}
+.hordes-unit.owner-0:before,.hordes-unit.owner-1:before,.hordes-unit.owner-2:before,.hordes-unit.owner-3:before{border:0}
