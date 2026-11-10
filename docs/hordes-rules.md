@@ -19,7 +19,7 @@
 
 - Em cada ataque normal, contra-ataque ou pedra do Golem, atacante e alvo lançam 1d6. O dano só acontece se o dado do atacante for maior; empate e defesa maior bloqueiam o golpe. A magia Golpe Devastador conserva seu efeito direto.
 
-- Forja: terreno de 3 HP que custa 2 gemas e cria aleatoriamente uma carta de Espada ou Escudo na mão a cada 2 turnos do dono. Se a mão estiver cheia, a produção é perdida naquele ciclo. Espada aumenta o dano de um monstro aliado em 2; Escudo bloqueia dano à distância, incluindo flechas, pedras, tiros de torres e o Golpe Devastador. Equipamentos não custam recursos ao serem usados.
+- Forja: terreno de 3 HP que custa 2 gemas e cria aleatoriamente uma carta de Espada ou Escudo a cada turno do dono. Se a mão estiver cheia, as cartas aguardam espaço. Espada aumenta o dano de um monstro aliado em 2; Escudo absorve até 2 pontos de dano, inclusive corpo a corpo e magias. Equipamentos não custam recursos ao serem usados.
 
 - Conversão custa 3 manas e transforma um monstro inimigo vivo em aliado, preservando sua vida e habilidades. Não afeta torres nem estruturas e respeita o limite de unidades.
 - Vulcão custa 4 gemas e possui 5 HP; a cada 3 turnos do dono tenta gerar um demônio de fogo por 3 carnes. O demônio tem 5 HP, 5 de dano e movimenta até 5 hexágonos por turno; se errar o primeiro ataque, tenta uma segunda vez.
@@ -28,7 +28,7 @@
 
 - No próprio turno, o jogador pode devolver uma carta da mão ao baralho e comprar outra até três vezes. O limite reinicia em cada turno; se não houver outra carta no baralho nem no descarte, a troca fica indisponível.
 
-- Campo de Titã custa 10 gemas, tem 5 HP e gera um Titã a cada 5 turnos por 10 carnes. O Titã tem 10 de vida, 10 de dano, anda até 4 casas, pode atacar até três vezes por turno e é imune a magias ofensivas.
+- Campo de Titã custa 10 gemas, tem 5 HP e gera um Titã a cada 5 turnos por 10 carnes. O Titã tem 10 de vida, 10 de dano, anda até 4 casas, pode atacar até três vezes por turno e é imune a magias ofensivas. Se não puder ser invocado no turno previsto, o campo tenta novamente a cada turno até conseguir.
 - Planta é um monstro que custa 4 carnes e 2 gemas, possui 6 de vida e 6 de dano, não anda e não pode ser alvo de ataques à distância ou magias hostis. Pode combater corpo a corpo.
 
 - Campo de Aranhas custa 3 gemas e tem 3 HP. A cada turno gera uma aranha por 1 carne; ela tem 1 de vida, 2 de dano, anda até 4 casas e ataca até duas vezes.

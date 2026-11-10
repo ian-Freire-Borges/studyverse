@@ -129,3 +129,5 @@
 
 .hordes-card-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:5px;flex-wrap:wrap}.hordes-card-heading strong{margin:0;flex:1 1 60px}.hordes-card-stats,.hordes-summon-stats{display:flex;gap:6px;align-items:center;color:#e8d9b2;font-weight:800;font-size:.69rem!important}.hordes-card-stats span:first-child,.hordes-summon-stats span:nth-child(2){color:#ffb2a1}.hordes-card-stats span:last-child,.hordes-summon-stats span:last-child{color:#f4d49b}.hordes-summon-stats{flex-wrap:wrap}
 .hordes-effect.effect-duel{animation-duration:1.2s}.hordes-unit.attacking img{animation-duration:.8s}.hordes-unit.kind-archer.attacking img{animation-duration:.8s,.8s}.hordes-unit.kind-demon.attacking.retrying img,.hordes-unit.kind-spider.attacking img,.hordes-unit.kind-titan.attacking img{animation-duration:1.2s}
+
+.hordes-forge-pending{display:block;margin-top:6px;font-size:.72rem;color:#e7d6ab}.hordes-effect.effect-absorb{color:#d4ebff;text-shadow:0 0 8px #87baff}
