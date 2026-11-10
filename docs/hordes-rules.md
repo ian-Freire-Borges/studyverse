@@ -2,7 +2,7 @@
 
 - O servidor controla os recursos, cartas, unidades, caminhos e dano. Cada cliente recebe apenas sua própria mão.
 - Cada jogador começa com 2 carnes, 3 gemas e 0 mana. No início de cada turno do jogador, sua torre gera 1 carne, 1 gema e 1 mana.
-- Terrenos custam 2 gemas para construir, exceto o Vulcão e a Torre Defensiva, que custam 4 gemas, a até dois hexágonos da torre. Pode-se jogar qualquer quantidade de cartas por turno enquanto houver recursos e espaço disponíveis.
+- Terrenos custam 2 gemas para construir, exceto o Vulcão e a Torre Defensiva, que custam 4 gemas, a até dois hexágonos da torre; monstros podem ser invocados a até três. Pode-se jogar qualquer quantidade de cartas por turno enquanto houver recursos e espaço disponíveis.
 - Fazenda: 3 HP, produz 1 carne a cada turno do dono após a construção. Mina de Gemas: 3 HP, produz 1 gema a cada turno do dono após a construção.
 - Terreno de Zumbis: 3 HP, tenta produzir 1 zumbi por 1 carne a cada dois turnos do dono após a construção. Terreno de Arqueiros: 2 HP, tenta produzir 1 arqueiro por 2 carnes no mesmo intervalo. Se a casa estiver ocupada ou faltar carne, a produção é perdida sem consumo.
 - Golpe Devastador custa 2 manas e causa 4 de dano a uma unidade ou terreno inimigo. Não atinge torres ou aliados. É possível jogar várias magias e terrenos no mesmo turno.
@@ -30,3 +30,5 @@
 
 - Campo de Titã custa 10 gemas, tem 5 HP e gera um Titã a cada 5 turnos por 10 carnes. O Titã tem 10 de vida, 10 de dano, anda até 4 casas, pode atacar até três vezes por turno e é imune a magias ofensivas.
 - Planta é um monstro que custa 4 carnes e 2 gemas, possui 6 de vida e 6 de dano, não anda e não pode ser alvo de ataques à distância ou magias hostis. Pode combater corpo a corpo.
+
+- Campo de Aranhas custa 3 gemas e tem 3 HP. A cada turno gera uma aranha por 1 carne; ela tem 1 de vida, 2 de dano, anda até 4 casas e ataca até duas vezes.
