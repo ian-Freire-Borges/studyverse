@@ -44,3 +44,6 @@
 @keyframes hordes-step-shadow{to{transform:scale(.7);opacity:.5}}
 @keyframes hordes-impact{0%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(-40deg)}35%{opacity:1;transform:translate(-50%,-50%) scale(1.5) rotate(15deg)}100%{opacity:0;transform:translate(-50%,-65%) scale(.7) rotate(45deg)}}
 @media(prefers-reduced-motion:reduce){.hordes *{animation:none!important;transition:none!important}}
+
+.hordes-card-art.art-golem{background:radial-gradient(circle at 50% 60%,#b7a38288,#28332f 74%)}
+.hordes-unit.kind-golem img{width:80%;height:80%;filter:drop-shadow(0 3px 3px #17160e)}
