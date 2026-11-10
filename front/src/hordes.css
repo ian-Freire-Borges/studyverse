@@ -119,3 +119,5 @@
 .hordes-unit.kind-demon.attacking.retrying img{animation:hordes-attack .6s ease-out 2 both;animation-delay:var(--attack-delay,0ms)}
 
 .hordes-cell.equip-target{cursor:pointer;filter:brightness(1.35);box-shadow:inset 0 0 0 3px #9ee6c6,0 0 12px #8aebc1}.hordes-card-art.art-sword,.hordes-card-art.art-shield{background:radial-gradient(circle,#e1ce8c88,#45534a 60%,#1c2a27)}.hordes-item-art{font-size:2.8rem!important;filter:drop-shadow(0 3px 4px #0008)}.hordes-sword{position:absolute;z-index:3;right:8%;top:10%;font-size:clamp(9px,1vw,13px);line-height:1;filter:drop-shadow(0 1px 2px #06151b)}.hordes-effect.effect-equip,.hordes-effect.effect-blocked{color:#b9ffdf;text-shadow:0 0 10px #64e0a8}
+
+.hordes-card-art.art-titanField{background:radial-gradient(circle,#e3c98988,#66533d 50%,#292f2b)}.hordes-card-art.art-plant{background:radial-gradient(circle,#a8e88c99,#355d38 55%,#1d3026)}.hordes-unit.kind-titan img,.hordes-unit.kind-plant img{width:84%;height:84%;filter:drop-shadow(0 3px 3px #101914bb)}.hordes-unit.kind-titan.attacking img{animation:hordes-attack .6s ease-out 3 both;animation-delay:var(--attack-delay,0ms)}

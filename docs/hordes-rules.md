@@ -27,3 +27,6 @@
 - Torre Defensiva: custa 4 gemas, tem 10 HP e, no início de cada turno do dono após sua construção, ataca cada monstro e estrutura inimiga a até 4 casas, causando 2 de dano se vencer a disputa de dados. Torres principais inimigas também podem ser atingidas.
 
 - No próprio turno, o jogador pode devolver uma carta da mão ao baralho e comprar outra até três vezes. O limite reinicia em cada turno; se não houver outra carta no baralho nem no descarte, a troca fica indisponível.
+
+- Campo de Titã custa 10 gemas, tem 5 HP e gera um Titã a cada 5 turnos por 10 carnes. O Titã tem 10 de vida, 10 de dano, anda até 4 casas, pode atacar até três vezes por turno e é imune a magias ofensivas.
+- Planta é um monstro que custa 4 carnes e 2 gemas, possui 6 de vida e 6 de dano, não anda e não pode ser alvo de ataques à distância ou magias hostis. Pode combater corpo a corpo.
