@@ -106,3 +106,5 @@
 .hordes-shield{position:absolute;z-index:3;left:8%;top:10%;font-size:clamp(9px,1vw,13px);line-height:1;filter:drop-shadow(0 1px 2px #06151b)}
 
 .hordes-card-art.art-volcano{background:radial-gradient(ellipse at center,#e87939aa,#593022 60%,#252d29)}.hordes-card-art.art-convert{background:radial-gradient(circle,#9cf0d7,#317a7e 48%,#1c3040 85%)}.hordes-unit.kind-demon img{width:80%;height:80%;filter:drop-shadow(0 0 5px #ff713d)}.hordes-effect.effect-convert{color:#b2ffda;text-shadow:0 0 12px #56e5b0}
+
+.hordes-card-art.art-wall{background:radial-gradient(ellipse at 50% 75%,#bbc4b188,#394b3e 70%)}
