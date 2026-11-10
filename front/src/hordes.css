@@ -86,3 +86,18 @@
 .hordes-cell.scenery-4::before{background:url(/assets/hordes/field-clover.svg) center/100% 100% no-repeat}
 .hordes-cell.scenery-5::before{background:url(/assets/hordes/grass-detail.svg) center/100% 100% no-repeat;transform:scaleX(-1)}
 .hordes-cell.terrain::before,.hordes-cell.tower::before,.hordes-cell.unit::before{opacity:.3}
+
+/* Acabamento do campo e fundações discretas para as estruturas. */
+.hordes-board-wrap{background:linear-gradient(145deg,#192b2a,#101a20);border:1px solid #827a5a66;box-shadow:inset 0 1px 12px #07120e99,0 3px 16px #0004}
+.hordes-board{border-color:#897b56;box-shadow:inset 0 0 30px #0b221799,0 7px 18px #0008}
+.hordes-cell:not(.buildable):not(.strike-target){background-image:radial-gradient(ellipse at 27% 18%,var(--ground-light,#dcebb629),transparent 52%),linear-gradient(155deg,#c1dfa920 0%,transparent 48%,#0d291c45 100%),url(/assets/hordes/grass-field.svg);box-shadow:inset 0 2px 2px #d7e9b535,inset 0 -3px 3px #142c1d52}
+.hordes-cell.scenery-0,.hordes-cell.scenery-4{--ground-light:#d5e9a52e}.hordes-cell.scenery-1,.hordes-cell.scenery-5{--ground-light:#b9dca02b}.hordes-cell.scenery-2{--ground-light:#ecdeaa24}.hordes-cell.scenery-3,.hordes-cell.scenery-6{--ground-light:#b7ddbc20}
+.hordes-cell.tower[class*="owner-"],.hordes-cell.terrain[class*="owner-"]{box-shadow:inset 0 2px 2px #d7e9b535,inset 0 -3px 3px #142c1d52}
+.hordes-cell.tower>span::before,.hordes-cell.terrain>span::before{content:"";position:absolute;width:61%;height:25%;left:19.5%;bottom:22%;border-radius:50%;background:radial-gradient(ellipse,#405b3b 38%,#263c2fcc 75%);border:1px solid #c4cb9b55;box-shadow:0 3px 4px #10241ba6;pointer-events:none}
+.hordes-cell.tower img,.hordes-cell.terrain img{position:relative;z-index:1;filter:drop-shadow(0 3px 2px #0b1b12bb)}
+.hordes-cell.tower b,.hordes-cell.terrain b{z-index:3;background:#15211fe8;border:1px solid #f0e9cc77;border-radius:5px;color:#fff;right:18%;bottom:17%;min-width:14px;line-height:1.15}
+.hordes-owner-mark,.hordes-owner-key{display:inline-block;border-radius:50%;background:var(--owner-color,#eee);border:1px solid #17251f;box-shadow:0 0 0 1px #f7f1d99c}
+.hordes-owner-mark{position:absolute;z-index:3;width:clamp(5px,.55vw,8px);height:clamp(5px,.55vw,8px);left:20%;bottom:21%}
+.hordes-owner-key{width:8px;height:8px;vertical-align:middle;margin-right:2px}
+.owner-0{--owner-color:#83d5ed}.owner-1{--owner-color:#f4a285}.owner-2{--owner-color:#c8a5ef}.owner-3{--owner-color:#ebcf74}
+.hordes-cell.inspectable:hover,.hordes-cell.inspected{box-shadow:inset 0 0 0 3px #f4e7a8!important;filter:brightness(1.18)}
