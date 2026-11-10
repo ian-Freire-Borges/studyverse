@@ -101,3 +101,6 @@
 .hordes-owner-key{width:8px;height:8px;vertical-align:middle;margin-right:2px}
 .owner-0{--owner-color:#83d5ed}.owner-1{--owner-color:#f4a285}.owner-2{--owner-color:#c8a5ef}.owner-3{--owner-color:#ebcf74}
 .hordes-cell.inspectable:hover,.hordes-cell.inspected{box-shadow:inset 0 0 0 3px #f4e7a8!important;filter:brightness(1.18)}
+
+.hordes-card-art.art-forge{background:radial-gradient(ellipse at 50% 68%,#f2974c8a,#47362c 52%,#253731 85%)}
+.hordes-shield{position:absolute;z-index:3;left:8%;top:10%;font-size:clamp(9px,1vw,13px);line-height:1;filter:drop-shadow(0 1px 2px #06151b)}

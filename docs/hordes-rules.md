@@ -18,3 +18,5 @@
 - A ordem de turnos é sorteada uma única vez no início da partida e permanece igual nas rodadas seguintes. Jogadores eliminados são retirados da ordem.
 
 - Em cada ataque normal, contra-ataque ou pedra do Golem, atacante e alvo lançam 1d6. O dano só acontece se o dado do atacante for maior; empate e defesa maior bloqueiam o golpe. A magia Golpe Devastador conserva seu efeito direto.
+
+- Forja: terreno de 3 HP que custa 2 gemas. Zumbis gerados em uma casa hexagonal adjacente a uma Forja aliada recebem escudo permanente contra danos de arqueiros. O escudo permanece após a Forja ser destruída e não protege de outros ataques ou magias.
