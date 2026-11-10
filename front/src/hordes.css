@@ -17,3 +17,30 @@
 .hordes-cell{position:absolute;aspect-ratio:auto;clip-path:polygon(50% 0,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%);border:0;background-image:linear-gradient(145deg,#a9bd7030,#14271688),url(/assets/hordes/grass.png);background-size:cover;box-shadow:inset 0 0 0 2px #d4e9a04a}
 .hordes-cell:nth-child(3n){filter:brightness(.92)}.hordes-cell:nth-child(7n){filter:brightness(1.08)}.hordes-cell.buildable{background-image:linear-gradient(#a2e57988,#79be5a99),url(/assets/hordes/grass.png)}.hordes-cell.strike-target{background-image:linear-gradient(#e97d6c99,#c2414099),url(/assets/hordes/grass.png)}
 .hordes-unit{z-index:2}.hordes-meat{line-height:1.8}
+
+/* Mantém construções e indicadores dentro do contorno de cada hexágono. */
+.hordes-cell>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.hordes-cell.terrain img,.hordes-cell.tower img{width:60%;height:60%;object-fit:contain;image-rendering:pixelated}
+.hordes-cell b{right:22%;bottom:19%;min-width:13px;text-align:center;border-radius:4px;font-size:clamp(8px,1vw,11px);line-height:1.15}
+.hordes-health{bottom:19%;left:27%;width:46%;height:3px}
+.hordes-unit.kind-archer img,.hordes-unit img{width:76%;height:76%;max-width:100%;object-fit:contain}
+.hordes-unit b{right:15%;bottom:14%;border-radius:4px}.hordes-unit{border-bottom:0!important}.hordes-unit:before{content:"";position:absolute;bottom:17%;width:36%;height:8%;border-radius:50%;background:#17251ab3;box-shadow:0 1px 5px #10100a}
+.hordes-unit.owner-0:before{border-bottom:2px solid #67caff}.hordes-unit.owner-1:before{border-bottom:2px solid #f57a72}.hordes-unit.owner-2:before{border-bottom:2px solid #b68dff}.hordes-unit.owner-3:before{border-bottom:2px solid #e1c95d}
+/* Ilustrações individuais e leitura confortável em qualquer tamanho. */
+.hordes-card{flex-basis:140px;min-height:230px;gap:5px;background:linear-gradient(160deg,#394a3a,#1b2422);overflow:hidden}
+.hordes-card strong{margin:3px 0;font-size:.84rem;line-height:1.15}.hordes-card small{line-height:1.35}
+.hordes-card-art{display:flex;align-items:center;justify-content:center;height:76px;flex:none;border:1px solid #a8b58855;border-radius:7px;background:radial-gradient(ellipse at 50% 70%,#a4c18c70,transparent 65%),linear-gradient(155deg,#324d40,#182c2b);overflow:hidden}
+.hordes-card-art img{width:60px;height:60px;max-width:90%;max-height:90%;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 5px 3px #0008)}
+.hordes-card-art.art-gem{background:radial-gradient(circle at 50% 65%,#48c9e27a,#202f49 70%)}.hordes-card-art.art-strike{background:radial-gradient(circle,#fbad71,#7b3445 45%,#292135 80%)}
+.hordes-spell-art{font-size:3.2rem!important;color:#fff2ba;text-shadow:0 0 10px #ffb447,0 0 22px #ff6644;transform:rotate(-18deg)}
+/* Passos, poeira e impacto dão mais clareza à ação sem alterar o movimento. */
+.hordes-unit.moving:before{animation:hordes-step-shadow .25s ease-in-out 2 alternate}
+.hordes-unit.moving:not(.attacking):not(.spawning):not(.damaged) img{animation:hordes-step .25s ease-in-out 2 alternate}
+.hordes-unit.kind-zombie.moving:not(.face-up):not(.face-down):not(.attacking):not(.spawning):not(.damaged) img{animation:hordes-step .25s ease-in-out 2 alternate,hordes-frames .25s steps(1) 2}
+.hordes-unit.kind-archer.moving:not(.attacking):not(.spawning):not(.damaged) img{animation:hordes-step .25s ease-in-out 2 alternate,hordes-archer-run .5s steps(1) both}
+.hordes-effect.effect-attack{font-size:1.2rem;color:#fff4c5;text-shadow:0 0 7px #ff8d47,0 0 15px #ff6035;animation:hordes-impact .55s ease-out both;animation-delay:var(--delay,0ms)}
+.hordes-effect.effect-hit{font-size:1.1rem;text-shadow:0 2px 3px #2d0d05,0 0 10px #ff6e46}
+@keyframes hordes-step{from{transform:translateY(0) rotate(-4deg) scaleX(var(--face,1))}to{transform:translateY(-4px) rotate(4deg) scaleX(var(--face,1))}}
+@keyframes hordes-step-shadow{to{transform:scale(.7);opacity:.5}}
+@keyframes hordes-impact{0%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(-40deg)}35%{opacity:1;transform:translate(-50%,-50%) scale(1.5) rotate(15deg)}100%{opacity:0;transform:translate(-50%,-65%) scale(.7) rotate(45deg)}}
+@media(prefers-reduced-motion:reduce){.hordes *{animation:none!important;transition:none!important}}
