@@ -131,3 +131,8 @@
 .hordes-effect.effect-duel{animation-duration:1.2s}.hordes-unit.attacking img{animation-duration:.8s}.hordes-unit.kind-archer.attacking img{animation-duration:.8s,.8s}.hordes-unit.kind-demon.attacking.retrying img,.hordes-unit.kind-spider.attacking img,.hordes-unit.kind-titan.attacking img{animation-duration:1.2s}
 
 .hordes-forge-pending{display:block;margin-top:6px;font-size:.72rem;color:#e7d6ab}.hordes-effect.effect-absorb{color:#d4ebff;text-shadow:0 0 8px #87baff}
+
+/* Rolagem da mão */
+.hordes-hand{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#a28b5f #202c29;padding-bottom:12px}.hordes-hand::-webkit-scrollbar{height:9px}.hordes-hand::-webkit-scrollbar-track{background:#202c29;border-radius:99px}.hordes-hand::-webkit-scrollbar-thumb{background:#a28b5f;border:2px solid #202c29;border-radius:99px}.hordes-hand::-webkit-scrollbar-thumb:hover{background:#dec286}.hordes-card-art.art-hero{background:radial-gradient(circle at 50% 55%,#edd083aa,#554e3d 55%,#1c3032)}.hordes-unit.kind-hero img{width:85%;height:90%;filter:drop-shadow(0 0 5px #ffdb80aa)}.hordes-effect.effect-heal{color:#b5ffad}.hordes-effect.effect-teleport{color:#ffe6a0;font-size:1.5rem}
+
+.hordes-chain-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;overflow:visible}.hordes-chain-layer line{stroke:#a1e5ff;stroke-width:.07;stroke-dasharray:.18 .1;filter:drop-shadow(0 0 3px #7cd8ff)}.hordes-unit.kind-mage img{width:80%;height:85%;filter:drop-shadow(0 0 4px #98dfff88)}.hordes-card-art.art-mageField{background:radial-gradient(circle,#99d9ed99,#344c60 60%,#202b35)}
