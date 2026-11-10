@@ -12,3 +12,5 @@
 - O equilíbrio da economia deve ser avaliado em partidas com pessoas; medições de versões anteriores não se aplicam a estas regras.
 
 - Golem é uma carta de monstro: custa 4 carnes, é invocado em uma casa livre a até dois hexágonos da torre, tem 4 de vida, causa 4 de dano corpo a corpo e se move uma casa. Além do ataque normal, arremessa automaticamente uma pedra por turno contra o inimigo ou estrutura mais próxima a até três hexágonos, causando 4 de dano; torres inimigas também podem ser atingidas.
+
+- Selecione um monstro para ver sua rota e escolher sua torre. Terrenos produtores transmitem a torre escolhida aos monstros produzidos. Cada alvo pode ser alterado a qualquer momento. Zumbis perseguem criaturas inimigas a até 3 casas, arqueiros até 5 e golens até 6.

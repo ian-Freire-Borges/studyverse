@@ -50,3 +50,15 @@
 
 .hordes-card-cost{margin-top:auto;align-self:flex-start;padding:3px 8px;border:1px solid #b8b18d66;border-radius:6px;background:#101a1bcc;color:#fff;font-size:.78rem!important;font-weight:800;line-height:1.2}
 .hordes-unit.owner-0:before,.hordes-unit.owner-1:before,.hordes-unit.owner-2:before,.hordes-unit.owner-3:before{border:0}
+
+/* Névoa e luzes discretas sobre a arena. */
+.hordes-board{isolation:isolate;background:radial-gradient(ellipse at 25% 15%,#b2dca34a,transparent 40%),radial-gradient(ellipse at 80% 85%,#7790a444,transparent 45%),#243c30}
+.hordes-board::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 20% 30%,#d4f4b41c,transparent 36%),radial-gradient(ellipse at 75% 75%,#a4dfdc1c,transparent 40%);animation:hordes-mist 9s ease-in-out infinite alternate}
+.hordes-cell.inspectable{cursor:pointer}.hordes-cell.inspectable:hover,.hordes-cell.inspected{filter:brightness(1.35);box-shadow:inset 0 0 0 4px #fff0a7,0 0 12px #c7ed91}
+.hordes-cell.route::after{background:#fff3b7;box-shadow:0 0 5px #fff6b9,0 0 14px #9ced83;animation:hordes-route 1.2s ease-in-out infinite alternate}
+.hordes-inspector{display:grid;gap:7px;padding:9px;border:1px solid #70856b;border-radius:9px;background:#1c2a29}.hordes-inspector label,.hordes-inspector small{line-height:1.35}.hordes-inspector button{border:1px solid #839584;background:#34483d;color:white;border-radius:7px;padding:6px}
+@keyframes hordes-mist{from{transform:translate(-3%,-2%);opacity:.6}to{transform:translate(3%,2%);opacity:1}}@keyframes hordes-route{to{opacity:1;transform:scale(1.35)}}
+@media(prefers-reduced-motion:reduce){.hordes *,.hordes-board::after{animation:none!important;transition:none!important}}
+
+.hordes-bottom>div:first-child{min-width:0;flex:1 1 0}.hordes-controls{flex:0 0 185px;min-width:0}.hordes-inspector select{min-width:0;width:100%}
+@media(max-width:600px){.hordes-bottom>div:first-child,.hordes-controls{flex:initial;width:100%}}
