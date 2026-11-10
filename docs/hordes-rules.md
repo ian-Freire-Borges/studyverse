@@ -25,3 +25,5 @@
 - Vulcão custa 4 gemas e possui 3 HP; a cada 3 turnos do dono tenta gerar um demônio de fogo por 3 carnes. O demônio tem 5 HP, 5 de dano e movimenta até 5 hexágonos por turno.
 
 - Muro: terreno que custa 2 gemas, bloqueia a passagem de todas as unidades e a linha de visão. Não pode ser alvo de ataques ou magias e não sofre dano.
+
+- No próprio turno, o jogador pode devolver uma carta da mão ao baralho e comprar outra até três vezes. O limite reinicia em cada turno; se não houver outra carta no baralho nem no descarte, a troca fica indisponível.

@@ -1,7 +1,7 @@
 import {describe,it,expect} from 'vitest';
 import fc from 'fast-check';
 import {hexDistance,hexNeighbors} from '../back/hordes/navigation.js';
-import {CONFIG,CARD_TYPES,createGame,beginTurn,place,castStrike,castConvert,chooseEntityTarget,resolveTurn,path,lineOfSight,snapshot,navigationStats} from '../back/hordes/core.js';
+import {CONFIG,CARD_TYPES,createGame,beginTurn,place,exchangeCard,castStrike,castConvert,chooseEntityTarget,resolveTurn,path,lineOfSight,snapshot,navigationStats} from '../back/hordes/core.js';
 const users=['a','b','c','d'].map(id=>({id,name:id,avatar:0}));
 const make=(n=2)=>createGame(17,users.slice(0,n));
 const setup=s=>{const id=s.order[s.turn],p=s.players.find(v=>v.id===id),enemy=s.players.find(v=>v.id!==id);return {id,p,enemy}};
@@ -72,4 +72,10 @@ describe('muro e prioridade de alvos',()=>{
  it('navegação contorna muro de qualquer jogador sem atravessá-lo',()=>{const s=make(),{id,p,enemy}=setup(s),u={id:'u900',owner:id,type:'zombie',x:4,y:4,hp:2};s.units=[u];const first=path(s,u,enemy)[0];expect(first).toBeTruthy();for(const owner of [id,enemy.id]){const w=addTerrain(s,owner,'wall',...first);const route=path(s,u,enemy);expect(route.length).toBeGreaterThan(0);expect(route.some(([x,y])=>x===w.x&&y===w.y)).toBe(false);s.terrains=s.terrains.filter(t=>t!==w)}});
  it('muro inimigo não é alvo de arqueiro nem de ataque do golem',()=>{const s=make(),{id,enemy}=setup(s),w=addTerrain(s,enemy.id,'wall',5,4);s.units=[{id:'u900',owner:id,type:'golem',x:4,y:4,hp:4,damage:4,movement:1,range:1}];s.seed=9;resolveTurn(s,id);expect(w.hp).toBe(1);expect(s.events.some(e=>e.targetId===w.id)).toBe(false);expect(lineOfSight(s,{x:4,y:4},{x:6,y:4})).toBe(false)});
  it('prioriza monstro distante antes de estrutura próxima, depois a estrutura mais próxima',()=>{const s=make(),{id,p,enemy}=setup(s);p.x=0;p.y=0;enemy.x=12;enemy.y=12;const attacker={id:'u900',owner:id,type:'zombie',x:4,y:4,hp:2,damage:1,movement:2,range:1},foe={id:'u901',owner:enemy.id,type:'zombie',x:9,y:4,hp:2,damage:1,movement:2,range:1};const near=addTerrain(s,enemy.id,'farm',5,4);addTerrain(s,enemy.id,'farm',8,8);s.units=[attacker,foe];expect(snapshot(s,id).routes.find(r=>r.id===attacker.id).target).toBe(foe.id);s.units=[attacker];expect(snapshot(s,id).routes.find(r=>r.id===attacker.id).target).toBe(near.id)});
+});
+
+describe('troca de cartas',()=>{
+ it('devolve uma carta e compra outra até três vezes, sem vazar a mão',()=>{const s=make(),{id,p,enemy}=setup(s),original=p.hand.length;for(let i=0;i<3;i++){const old=p.hand[0].id;expect(exchangeCard(s,id,old)).toBe(true);expect(p.hand.length).toBe(original);expect(p.hand.some(c=>c.id===old)).toBe(false);expect(snapshot(s,id).exchangesRemaining).toBe(2-i);expect(snapshot(s,enemy.id).players.every(q=>!('exchanges'in q))).toBe(true)}const hand=[...p.hand];expect(exchangeCard(s,id,p.hand[0].id)).toBe(false);expect(p.hand).toEqual(hand)});
+ it('rejeita ações de adversários, carta ausente ou baralho sem substitutas',()=>{const s=make(),{id,p,enemy}=setup(s);expect(exchangeCard(s,enemy.id,enemy.hand[0].id)).toBe(false);expect(exchangeCard(s,id,'inexistente')).toBe(false);s.deck=[];s.discard=[];const first=p.hand[0];expect(exchangeCard(s,id,first.id)).toBe(false);expect(p.hand).toContain(first);expect(snapshot(s,id).exchangesRemaining).toBe(3)});
+ it('usa descarte se o baralho acabar e reinicia no próximo turno',()=>{const s=make(),{id,p}=setup(s),returned=p.hand[0];s.deck=[];s.discard=[{id:'discarded-card',type:'wall'}];expect(exchangeCard(s,id,returned.id)).toBe(true);expect(p.hand.some(c=>c.id==='discarded-card')).toBe(true);expect(s.deck).toContain(returned);beginTurn(s);expect(snapshot(s,id).exchangesRemaining).toBe(3)});
 });

@@ -108,3 +108,8 @@
 .hordes-card-art.art-volcano{background:radial-gradient(ellipse at center,#e87939aa,#593022 60%,#252d29)}.hordes-card-art.art-convert{background:radial-gradient(circle,#9cf0d7,#317a7e 48%,#1c3040 85%)}.hordes-unit.kind-demon img{width:80%;height:80%;filter:drop-shadow(0 0 5px #ff713d)}.hordes-effect.effect-convert{color:#b2ffda;text-shadow:0 0 12px #56e5b0}
 
 .hordes-card-art.art-wall{background:radial-gradient(ellipse at 50% 75%,#bbc4b188,#394b3e 70%)}
+
+.hordes-exchange{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px}.hordes-exchange button{border:1px solid #a4ba87;border-radius:8px;background:#2c4537;color:#f5f5e8;padding:7px 10px;font-weight:700;font-size:.75rem}.hordes-exchange button[aria-pressed=true]{background:#d0bc84;color:#20241c}.hordes-exchange button:disabled{opacity:.5}.hordes-exchange small{font-size:.73rem;color:#dcd3b1}
+
+/* O sprite do arqueiro tem margem transparente; ampliar preserva a escala visual. */
+.hordes-unit.kind-archer img{width:150%;height:150%;max-width:none;flex:none;image-rendering:pixelated}
