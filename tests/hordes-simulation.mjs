@@ -1,2 +1,28 @@
-import {createGame,place,castStrike,chooseTarget,resolveTurn} from '../back/hordes/core.js';
-for(const n of [2,3,4]){let wins=Array(n).fill(0),draws=0,rounds=0,max=0,unfinished=0,blockedTurns=0,totalTurns=0,firstWins=0;const t=Date.now();for(let seed=0;seed<(Number(process.env.HORDES_GAMES)||1000);seed++){const s=createGame(seed,Array.from({length:n},(_,i)=>({id:String(i),name:String(i),avatar:0})));const initialLeader=s.order[0];for(let action=0;action<350&&s.phase==='playing';action++){const id=s.order[s.turn],p=s.players.find(p=>p.id===id);const spell=p.hand.find(c=>c.type==='strike'),victim=s.terrains.find(t=>t.owner!==id);if(spell&&victim)castStrike(s,id,spell.id,victim.id);const hasFarm=s.terrains.some(t=>t.owner===id&&t.type==='farm'),card=(!hasFarm&&p.hand.find(c=>c.type==='farm'))||p.hand.find(c=>c.type!=='strike');if(card)for(const [dx,dy] of [[p.x<=6?1:-1,0],[0,p.y<=6?1:-1],[p.x<=6?-1:1,0],[0,p.y<=6?-1:1],[p.x<=6?1:-1,p.y<=6?1:-1],[p.x<=6?-1:1,p.y<=6?-1:1],[p.x<=6?-1:1,p.y<=6?1:-1],[p.x<=6?1:-1,p.y<=6?-1:1]])if(place(s,id,card.id,p.x+dx,p.y+dy))break;const enemies=s.players.filter(q=>q.alive&&q.id!==id);if(enemies.length)chooseTarget(s,id,enemies[(seed+action)%enemies.length].id);max=Math.max(max,s.units.length);const before=s.units.filter(u=>u.owner===id).map(u=>u.id+':'+u.x+','+u.y).join('|');resolveTurn(s,id);const after=s.units.filter(u=>u.owner===id).map(u=>u.id+':'+u.x+','+u.y).join('|');totalTurns++;if(before&&before===after&&!s.events.some(e=>e.type==='hit'))blockedTurns++}if(s.phase!=='finished')unfinished++;else if(s.winner===null)draws++;else{wins[Number(s.winner)]++;if(s.winner===initialLeader)firstWins++}rounds+=s.round}console.log(JSON.stringify({players:n,wins,draws,avgRounds:rounds/(Number(process.env.HORDES_GAMES)||1000),maxUnits:max,unfinished,blockedTurns,totalTurns,firstWins,elapsedMs:Date.now()-t}))}
+import {createGame,place,castStrike,castConvert,applyEquipment,exchangeCard,resolveTurn} from '../back/hordes/core.js';
+import {hexDistance} from '../back/hordes/navigation.js';
+const games=Math.max(1,Number(process.env.HORDES_GAMES)||1000);
+const playerCounts=(process.env.HORDES_PLAYER_COUNTS||'2,3,4').split(',').map(Number).filter(n=>[2,3,4].includes(n));
+for(const n of playerCounts){
+ const wins=Array(n).fill(0),plays={},scores={draws:0,rounds:0,unfinished:0,turns:0,firstWins:0,actions:0};const started=Date.now();
+ for(let seed=0;seed<games;seed++){
+  const s=createGame(seed,Array.from({length:n},(_,i)=>({id:String(i),name:String(i),avatar:0}))),leader=s.order[0];
+  for(let turn=0;turn<350&&s.phase==='playing';turn++){
+   const id=s.order[s.turn],p=s.players.find(v=>v.id===id);let actions=0,exchanges=0;
+   for(let cycle=0;cycle<15;cycle++){
+    const owned=s.terrains.filter(t=>t.owner===id),foes=[...s.units,...s.terrains].filter(v=>v.owner!==id&&v.hp>0).sort((a,b)=>hexDistance(p,a)-hexDistance(p,b)||String(a.id).localeCompare(String(b.id))),units=s.units.filter(u=>u.owner===id),has=type=>owned.some(t=>t.type===type);
+    const rank=c=>({farm:has('farm')?4:14,gem:has('gem')?4:13,zombie:8,archer:8,mageField:8,spiderField:8,defenseTower:8,forge:6,volcano:7,titanField:7,hero:12,golem:9,plant:9,strike:9,convert:10,sword:10,shield:10})[c.type]||0;
+    const ordered=[...p.hand].sort((a,b)=>rank(b)-rank(a)||a.id.localeCompare(b.id));let played=false;
+    for(const card of ordered){let ok=false;
+     if(card.type==='strike'||card.type==='convert')for(const foe of foes){ok=card.type==='strike'?castStrike(s,id,card.id,foe.id):castConvert(s,id,card.id,foe.id);if(ok)break}
+     else if(['sword','shield'].includes(card.type))for(const ally of units){if(applyEquipment(s,id,card.id,ally.id)){ok=true;break}}
+     else {const targets=s.players.filter(q=>q.alive&&q.id!==id),closest=targets.sort((a,b)=>hexDistance(p,a)-hexDistance(p,b))[0],spots=[];for(let y=0;y<13;y++)for(let x=0;x<13;x++)if(hexDistance(p,{x,y})<=3)spots.push({x,y});spots.sort((a,b)=>hexDistance(a,closest)-hexDistance(b,closest)||a.y-b.y||a.x-b.x);for(const spot of spots)if(place(s,id,card.id,spot.x,spot.y)){ok=true;break}}
+     if(ok){plays[card.type]=(plays[card.type]||0)+1;actions++;played=true;break}
+    }
+    if(!played){if(exchanges<3&&p.hand.length&&exchangeCard(s,id,p.hand[0].id)){exchanges++;continue}break}
+   }
+   scores.turns++;scores.actions+=actions;resolveTurn(s,id);
+  }
+  scores.rounds+=s.round;if(s.phase!=='finished')scores.unfinished++;else if(s.winner===null)scores.draws++;else{wins[Number(s.winner)]++;if(s.winner===leader)scores.firstWins++}
+ }
+ console.log(JSON.stringify({players:n,games,wins,draws:scores.draws,avgRounds:+(scores.rounds/games).toFixed(2),unfinished:scores.unfinished,firstWins:scores.firstWins,actions:scores.actions,turns:scores.turns,plays,elapsedMs:Date.now()-started}));
+}

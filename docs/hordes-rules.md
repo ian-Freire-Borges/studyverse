@@ -40,3 +40,9 @@
 - Treino de Mago: custa 3 gemas e gera um mago por 1 carne a cada 2 turnos. O mago tem 1 de vida, anda 1 casa e prende uma criatura inimiga a até 4 casas, causando 1 de dano por turno. Enquanto mantém a corrente, não anda nem muda de alvo. O alvo fica impedido de se mover até morrer ou a corrente ser interrompida.
 
 - Antes da partida, cada jogador pode escolher Humanos, Orcs ou Mortos-vivos. A classe altera apenas nomes e aparência; custos, baralhos, atributos e habilidades permanecem iguais. A escolha é compartilhada com a sala e preservada durante a reconexão.
+
+- Se a morte súbita destruir as últimas torres ao mesmo tempo, vence entre os últimos sobreviventes quem causou mais dano efetivo à vida inimiga durante a partida. Dano absorvido por escudos e dano além da vida restante não contam. Se houver empate no dano, a partida termina empatada.
+
+- Em partidas de três jogadores, as três torres começam a oito casas umas das outras.
+
+- Em duelos, quem joga em segundo recebe uma mana inicial para compensar a iniciativa. Nos outros modos, os recursos iniciais não mudam.

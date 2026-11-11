@@ -36,5 +36,10 @@
     "mongodb-memory-server-core": "^11.3.0",
     "typescript": "^7.0.2",
     "vitest": "^5.1.0"
+  },
+  "overrides": {
+    "typed-rest-client": {
+      "qs": "^6.17.1"
+    }
   }
 }

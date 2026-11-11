@@ -155,3 +155,13 @@ describe('Mago e corrente',()=>{
 });
 
 describe('classes visuais',()=>{it('mantém baralho, atributos e recursos idênticos independentemente da classe',()=>{const base=users.slice(0,2);const states=['human','orc','undead'].map(faction=>createGame(123,base.map(u=>({...u,faction}))));const normalize=s=>JSON.stringify(s,(key,value)=>key==='faction'?undefined:value);expect(normalize(states[0])).toBe(normalize(states[1]));expect(normalize(states[1])).toBe(normalize(states[2]));for(let i=0;i<3;i++){const s=states[i],{id,p}=setup(s);p.hand.push({id:'same-card',type:'golem'});p.meat=4;expect(place(s,id,'same-card',p.x+1,p.y)).toBe(true);expect(s.units.at(-1)).toMatchObject({type:'golem',hp:4,damage:4});expect(p.meat).toBe(0)}})});
+
+describe('desempate da morte súbita',()=>{
+ it('considera apenas o dano efetivo, descontando escudo e excesso de dano',()=>{const s=make(),{id,p,enemy}=setup(s);p.mana=2;p.hand.push({id:'score-spell',type:'strike'});s.units.push({id:'u-score',owner:enemy.id,type:'zombie',x:5,y:5,hp:1,shieldPoints:2});expect(castStrike(s,id,'score-spell','u-score')).toBe(true);expect(p.damageDealt).toBe(1)});
+ it('desempata entre os últimos sobreviventes pelo dano causado',()=>{const s=make(3),{id,p}=setup(s),other=s.players.find(q=>q.id!==id),eliminated=s.players.find(q=>q.id!==id&&q.id!==other.id);p.hp=1;p.damageDealt=5;other.hp=1;other.damageDealt=8;eliminated.alive=false;eliminated.hp=0;eliminated.damageDealt=100;s.round=46;startRound(s);expect(s.phase).toBe('finished');expect(s.winner).toBe(other.id);expect(s.winReason).toBe('damage');expect(snapshot(s,id).winReason).toBe('damage')});
+ it('mantém o empate quando o dano também for igual',()=>{const s=make(),{p,enemy}=setup(s);p.hp=enemy.hp=1;p.damageDealt=enemy.damageDealt=4;s.round=46;startRound(s);expect(s.phase).toBe('finished');expect(s.winner).toBe(null);expect(s.winReason).toBe(null)});
+});
+
+describe('equilíbrio de posições',()=>{it('mantém as três bases à mesma distância no mapa hexagonal',()=>{const s=make(3),[a,b,c]=s.players;expect(hexDistance(a,b)).toBe(8);expect(hexDistance(a,c)).toBe(8);expect(hexDistance(b,c)).toBe(8)})});
+
+describe('compensação da iniciativa',()=>{it('em duelos concede uma mana inicial ao jogador que age em segundo',()=>{const s=make(2),first=s.players.find(p=>p.id===s.order[0]),second=s.players.find(p=>p.id===s.order[1]);expect(first.mana).toBe(1);expect(second.mana).toBe(1);expect(s.log.some(line=>line.includes('1 mana inicial'))).toBe(true)});it('não concede mana extra em partidas com três ou quatro jogadores',()=>{for(const n of [3,4]){const s=make(n);for(const p of s.players)expect(p.mana).toBe(p.id===s.order[0]?1:0)}})});
